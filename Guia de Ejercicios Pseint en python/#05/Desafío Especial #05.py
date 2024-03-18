@@ -10,9 +10,43 @@
 # Como se puede observar, cada "estado" excluye a los anteriores.
 # ● (3) Dejá una línea en blanco de separación de los ingresos.
 # ● (4) Según el valor de la variable estado, mostrá por pantalla alguno de los 4 mensajes siguientes:
-
 #     Reprobado. Debe recursar la materia.
 #     Debe presentar los TPs.
 #     Aprobado. Debe rendir el final.
 #     Promocionado.
 # ● (5) Dejá una línea en blanco al final.
+
+
+nota_1 = int(input("Ingrese la primera nota: "))
+nota_2 = int(input("Ingrese la segunda nota: "))
+nota_3 = int(input("Ingrese la tercera nota: "))
+
+aprobacion_tp = input("Los trabajos estan aprobados?(S/N): ")
+
+if aprobacion_tp == "S":
+    aprobo_tp = True
+else:
+    aprobo_tp = False
+
+nota_promedio = (nota_1 + nota_2 + nota_3) / 3
+
+if (aprobo_tp) & (nota_promedio >= 7):
+    estado = "P"
+    print("")
+    print("Promocionado.")
+    print("")
+elif (aprobo_tp) & (nota_promedio < 7):
+    estado = "A"
+    print("")
+    print("Aprobado. Debe rendir el final.")
+    print("")
+elif (aprobo_tp is False) & (nota_promedio >= 4):
+    estado = "D"
+    print("")
+    print("Debe presentar los TPs.")
+    print("")
+else:
+    estado = "R"
+    print("")
+    print("Reprobado. Debe recursar la materia.")
+    print("")
